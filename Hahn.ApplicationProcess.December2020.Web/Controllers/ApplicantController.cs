@@ -36,15 +36,15 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers
         [HttpPut]
         public async Task<IActionResult> PutAsync(Applicant applicant)
         {
-            var result = await _applicantService.UpdateAsync(applicant);
-            return result ? (IActionResult) Ok() : NoContent();
+            var success = await _applicantService.UpdateAsync(applicant);
+            return success ? (IActionResult) Ok() : NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = await _applicantService.DeleteAsync(id);
-            return result ? (IActionResult) Ok() : NoContent();
+            var success = await _applicantService.DeleteAsync(id);
+            return success ? (IActionResult) Ok() : NoContent();
         }
     }
 }

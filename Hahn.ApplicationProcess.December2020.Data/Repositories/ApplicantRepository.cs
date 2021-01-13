@@ -13,9 +13,10 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
         {
             _db = db;
         }
+
         public async Task<Applicant> GetAsync(int id)
         {
-            return await _db.Applicants.FirstOrDefaultAsync(x => x.Id == id);
+            return await _db.Applicants.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Applicant> Create(Applicant applicant)
