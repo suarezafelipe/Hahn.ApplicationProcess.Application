@@ -7,5 +7,7 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Interfaces
     {
         Task<Applicant> GetAsync(int id);
         Task<Applicant> Create(Applicant applicant);
+        Task<bool> Delete(int id);
+        Task<bool> Update(Applicant applicant);
     }
 }

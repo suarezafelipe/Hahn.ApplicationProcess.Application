@@ -18,9 +18,24 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Services
             return await _applicantRepository.GetAsync(id);
         }
 
-        public async Task<Applicant> PostAsync(Applicant applicant)
+        public async Task<Applicant> CreateAsync(Applicant applicant)
         {
             return await _applicantRepository.Create(applicant);
+        }
+
+        public async Task<bool> UpdateAsync(Applicant applicant)
+        {
+            var exists = await _applicantRepository.GetAsync(applicant.Id);
+
+            if (exists == null)
+                return false;
+
+            return await _applicantRepository.Update(applicant);
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            return await _applicantRepository.Delete(id);
         }
     }
 }

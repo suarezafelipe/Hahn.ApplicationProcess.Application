@@ -27,10 +27,24 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync(Applicant applicant)
         {
-            var createdApplicant = await _applicantService.PostAsync(applicant);
+            var createdApplicant = await _applicantService.CreateAsync(applicant);
             return Created(
                 new Uri($"{Request.Scheme}://{Request.Host}{Request.PathBase}/applicant/{createdApplicant.Id}",
                     UriKind.Absolute), createdApplicant);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> PutAsync(Applicant applicant)
+        {
+            var result = await _applicantService.UpdateAsync(applicant);
+            return result ? (IActionResult) Ok() : NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _applicantService.DeleteAsync(id);
+            return result ? (IActionResult) Ok() : NoContent();
         }
     }
 }

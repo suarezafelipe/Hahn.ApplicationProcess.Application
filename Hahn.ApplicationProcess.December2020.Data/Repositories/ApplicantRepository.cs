@@ -24,5 +24,24 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
             await _db.SaveChangesAsync();
             return applicant;
         }
+
+        public async Task<bool> Update(Applicant applicant)
+        {
+            _db.Update(applicant);
+            var result = await _db.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var applicantToRemove = await GetAsync(id);
+
+            if (applicantToRemove == null)
+                return false;
+
+            _db.Applicants.Remove(applicantToRemove);
+            var result = await _db.SaveChangesAsync();
+            return result > 0;
+        }
     }
 }
