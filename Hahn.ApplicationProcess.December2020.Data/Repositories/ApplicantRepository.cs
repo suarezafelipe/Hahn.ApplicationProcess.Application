@@ -38,5 +38,11 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
 
             return applicants.FirstOrDefault(x => x.Id == id);
         }
+
+        public async Task<Applicant> Create(Applicant applicant)
+        {
+            applicant.Id = 3;
+            return applicant;
+        }
     }
 }

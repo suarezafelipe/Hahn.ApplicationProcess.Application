@@ -17,5 +17,10 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Services
         {
             return await _applicantRepository.GetAsync(id);
         }
+
+        public async Task<Applicant> PostAsync(Applicant applicant)
+        {
+            return await _applicantRepository.Create(applicant);
+        }
     }
 }

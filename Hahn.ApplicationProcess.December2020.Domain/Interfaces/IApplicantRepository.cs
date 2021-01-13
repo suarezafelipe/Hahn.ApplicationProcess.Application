@@ -6,5 +6,6 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Interfaces
     public interface IApplicantRepository
     {
         Task<Applicant> GetAsync(int id);
+        Task<Applicant> Create(Applicant applicant);
     }
 }
