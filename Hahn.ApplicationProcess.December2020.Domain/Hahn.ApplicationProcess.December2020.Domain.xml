@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicationProcess.December2020.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant">
+            <summary>
+            Applicant entity
+            </summary>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.Name">
+            <example>Felipe</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.FamilyName">
+            <example>Suarez</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.Address">
+            <example>Friedhofstraße 11 93142 Maxhütte-Haidhof</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.CountryOfOrigin">
+            <example>Germany</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.EmailAddress">
+            <example>test@gmail.com</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.Age">
+            <example>31</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.Hired">
+            <example>true</example>
+        </member>
+    </members>
+</doc>

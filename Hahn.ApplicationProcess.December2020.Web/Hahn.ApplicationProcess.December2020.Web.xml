@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicationProcess.December2020.Web</name>
+    </assembly>
+    <members>
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.GetAsync(System.Int32)">
+            <summary>
+            Retrieves a specific applicant by id
+            </summary>
+            <param name="id" example="1">The applicant id</param>
+            <response code="200">Applicant found</response>
+            <response code="404">Applicant was not found in the database</response>
+        </member>
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.PostAsync(Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant)">
+            <summary>
+            Creates a new applicant
+            </summary>
+            <param name="applicant"></param>
+            <response code="201">Applicant successfully created</response>
+            <response code="400">There were validation errors. Applicant not created</response>
+        </member>
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.PutAsync(Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant)">
+            <summary>
+            Updates an existing applicant
+            </summary>
+            <param name="applicant"></param>
+            <response code="200">Applicant successfully updated</response>
+            <response code="204">The provided applicant id was not found in database. No Applicant was updated</response>
+            <response code="400">There were validation errors. Applicant not updated</response>
+        </member>
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.DeleteAsync(System.Int32)">
+            <summary>
+            Removes an existing applicant
+            </summary>
+            <param name="id" example="1"></param>
+            <response code="200">Applicant successfully deleted</response>
+            <response code="204">The provided applicant id was not found in database. No Applicant was removed</response>
+        </member>
+    </members>
+</doc>

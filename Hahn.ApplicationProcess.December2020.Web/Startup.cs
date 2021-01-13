@@ -2,12 +2,12 @@ using FluentValidation.AspNetCore;
 using Hahn.ApplicationProcess.December2020.Data;
 using Hahn.ApplicationProcess.December2020.Domain;
 using Hahn.ApplicationProcess.December2020.Domain.Validators;
+using Hahn.ApplicationProcess.December2020.Web.StartupExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace Hahn.ApplicationProcess.December2020.Web
 {
@@ -27,11 +27,7 @@ namespace Hahn.ApplicationProcess.December2020.Web
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicantValidator>());
             services.AddDomainRegistrations();
             services.AddDataRegistrations();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1",
-                    new OpenApiInfo {Title = "Hahn.ApplicationProcess.December2020.Web", Version = "v1"});
-            });
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
