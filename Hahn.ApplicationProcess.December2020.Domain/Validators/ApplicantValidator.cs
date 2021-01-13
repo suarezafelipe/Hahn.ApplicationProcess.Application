@@ -1,6 +1,9 @@
-﻿using FluentValidation;
+﻿using System.Collections.Generic;
+using System.Linq;
+using FluentValidation;
 using FluentValidation.Validators;
 using Hahn.ApplicationProcess.December2020.Domain.Entities;
+using RestSharp;
 
 namespace Hahn.ApplicationProcess.December2020.Domain.Validators
 {
@@ -11,12 +14,27 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Validators
             RuleFor(x => x.Name).MinimumLength(5);
             RuleFor(x => x.FamilyName).MinimumLength(5);
             RuleFor(x => x.Address).MinimumLength(10);
-
-            // CountryOfOrigin – must be a valid Country – therefore ask with an httpclient here https://restcountries.eu/rest/v2/… – ApiDescription: https://restcountries.eu/#api-endpoints-full-name if the country is found, the country is valid.
-
+            RuleFor(r => r.CountryOfOrigin).Must(ValidateCountry)
+                .WithMessage("CountryOfOrigin not found. Try with the english name or with the 2 letter ISO code");
             RuleFor(x => x.EmailAddress).EmailAddress(EmailValidationMode.Net4xRegex);
             RuleFor(x => x.Age).InclusiveBetween(20, 60);
             RuleFor(x => x.Hired).NotNull();
         }
+
+        private static bool ValidateCountry(Applicant applicant, string country)
+        {
+            RestClient client = new("https://restcountries.eu");
+            RestRequest request = new($"//rest/v2/name/{country}?fullText=true");
+
+            var apiResponse = client.GetAsync<List<CountriesApiModel>>(request).GetAwaiter().GetResult();
+
+            // If the api response was not null or empty it means the country was found and we return "true" as in valid.
+            return !string.IsNullOrEmpty(apiResponse.FirstOrDefault()?.Name);
+        }
+    }
+
+    public class CountriesApiModel
+    {
+        public string Name { get; set; }
     }
 }
