@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Hahn.ApplicationProcess.December2020.Domain.Entities;
 using Hahn.ApplicationProcess.December2020.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -27,8 +28,9 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers
         public async Task<IActionResult> PostAsync(Applicant applicant)
         {
             var createdApplicant = await _applicantService.PostAsync(applicant);
-            return Ok(createdApplicant);
+            return Created(
+                new Uri($"{Request.Scheme}://{Request.Host}{Request.PathBase}/applicant/{createdApplicant.Id}",
+                    UriKind.Absolute), createdApplicant);
         }
-
     }
 }
