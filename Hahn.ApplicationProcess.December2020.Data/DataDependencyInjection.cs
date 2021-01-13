@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Hahn.ApplicationProcess.December2020.Data
@@ -8,6 +9,9 @@ namespace Hahn.ApplicationProcess.December2020.Data
     {
         public static IServiceCollection AddDataRegistrations(this IServiceCollection services)
         {
+            // EF in-memory DB connection
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("hahnMemoryDb"));
+
             // This ensures automatic registration of all interfaces/implementations in the DataDependencyInjection assembly
             Assembly.GetAssembly(typeof(DataDependencyInjection))?
                 .ExportedTypes
