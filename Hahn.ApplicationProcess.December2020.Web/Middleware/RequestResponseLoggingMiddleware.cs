@@ -35,7 +35,7 @@ namespace Hahn.ApplicationProcess.December2020.Web.Middleware
             await context.Request.Body.CopyToAsync(requestStream);
 
             _logger.LogInformation($"Http *Request* Information:{Environment.NewLine}" +
-                                   $"{context.Request.Method} {context.Request.Scheme}/{context.Request.Host}/{context.Request.Path} " +
+                                   $"{context.Request.Method} {context.Request.Scheme}/{context.Request.Host}{context.Request.Path} " +
                                    $"| QueryString: {context.Request.QueryString} " +
                                    $"| Request Body: {ReadRequestStream(requestStream)}");
 
@@ -63,7 +63,7 @@ namespace Hahn.ApplicationProcess.December2020.Web.Middleware
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             _logger.LogInformation($"Http *Response* Information:{Environment.NewLine}" +
-                                   $"{context.Request.Method} {context.Request.Scheme}/{context.Request.Host}/{context.Request.Path} " +
+                                   $"{context.Request.Method} {context.Request.Scheme}/{context.Request.Host}{context.Request.Path} " +
                                    $"| Response Code: {context.Response.StatusCode} " +
                                    $"| Response Body: {text}");
 

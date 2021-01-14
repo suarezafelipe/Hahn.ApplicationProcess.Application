@@ -4,11 +4,6 @@
         <name>Hahn.ApplicationProcess.December2020.Domain</name>
     </assembly>
     <members>
-        <member name="T:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant">
-            <summary>
-            Applicant entity
-            </summary>
-        </member>
         <member name="P:Hahn.ApplicationProcess.December2020.Domain.Entities.Applicant.Name">
             <example>Felipe</example>
         </member>
