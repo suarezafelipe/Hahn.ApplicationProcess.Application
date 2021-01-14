@@ -29,8 +29,8 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
         public async Task<bool> Update(Applicant applicant)
         {
             _db.Update(applicant);
-            var result = await _db.SaveChangesAsync();
-            return result > 0;
+            var changedRows = await _db.SaveChangesAsync();
+            return changedRows > 0;
         }
 
         public async Task<bool> Delete(int id)
@@ -41,8 +41,8 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
                 return false;
 
             _db.Applicants.Remove(applicantToRemove);
-            var result = await _db.SaveChangesAsync();
-            return result > 0;
+            var changedRows = await _db.SaveChangesAsync();
+            return changedRows > 0;
         }
     }
 }
