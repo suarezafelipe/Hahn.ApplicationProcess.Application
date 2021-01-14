@@ -2,6 +2,7 @@ using FluentValidation.AspNetCore;
 using Hahn.ApplicationProcess.December2020.Data;
 using Hahn.ApplicationProcess.December2020.Domain;
 using Hahn.ApplicationProcess.December2020.Domain.Validators;
+using Hahn.ApplicationProcess.December2020.Web.Middleware;
 using Hahn.ApplicationProcess.December2020.Web.StartupExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,12 +42,10 @@ namespace Hahn.ApplicationProcess.December2020.Web
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicationProcess.December2020.Web v1"));
             }
 
+            app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
