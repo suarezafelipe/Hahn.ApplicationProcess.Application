@@ -28,7 +28,7 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Validators
 
             var apiResponse = client.GetAsync<List<CountriesApiModel>>(request).GetAwaiter().GetResult();
 
-            // If the api response was not null or empty it means the country was found and we return "true" as in valid.
+            // If the api response was not null or empty it means the country was found and we return "true" meaning it was valid.
             return !string.IsNullOrEmpty(apiResponse.FirstOrDefault()?.Name);
         }
     }

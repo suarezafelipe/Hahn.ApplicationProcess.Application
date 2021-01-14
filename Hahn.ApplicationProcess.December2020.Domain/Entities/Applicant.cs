@@ -1,8 +1,5 @@
 ﻿namespace Hahn.ApplicationProcess.December2020.Domain.Entities
 {
-    /// <summary>
-    /// Applicant entity
-    /// </summary>
     public class Applicant
     {
         public int Id { get; set; }
