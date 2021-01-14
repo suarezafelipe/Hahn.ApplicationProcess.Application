@@ -19,21 +19,21 @@ namespace Hahn.ApplicationProcess.December2020.Data.Repositories
             return await _db.Applicants.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Applicant> Create(Applicant applicant)
+        public async Task<Applicant> CreateAsync(Applicant applicant)
         {
             await _db.Applicants.AddAsync(applicant);
             await _db.SaveChangesAsync();
             return applicant;
         }
 
-        public async Task<bool> Update(Applicant applicant)
+        public async Task<bool> UpdateAsync(Applicant applicant)
         {
             _db.Update(applicant);
             var changedRows = await _db.SaveChangesAsync();
             return changedRows > 0;
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             var applicantToRemove = await GetAsync(id);
 

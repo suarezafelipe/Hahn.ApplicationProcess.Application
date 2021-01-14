@@ -6,8 +6,8 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Interfaces
     public interface IApplicantRepository
     {
         Task<Applicant> GetAsync(int id);
-        Task<Applicant> Create(Applicant applicant);
-        Task<bool> Delete(int id);
-        Task<bool> Update(Applicant applicant);
+        Task<Applicant> CreateAsync(Applicant applicant);
+        Task<bool> DeleteAsync(int id);
+        Task<bool> UpdateAsync(Applicant applicant);
     }
 }

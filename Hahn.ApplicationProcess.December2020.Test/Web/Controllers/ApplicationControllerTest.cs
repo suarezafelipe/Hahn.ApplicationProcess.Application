@@ -41,8 +41,8 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task GetAsync_ShouldReturnApplicant_WhenApplicantExists()
         {
             // Arrange
-            var applicantId = 1;
-            var mockedApplicant = MockValidApplicant();
+            const int applicantId = 1;
+            var mockedApplicant = ApplicantMocks.MockValidApplicant();
             mockedApplicant.Id = applicantId;
 
             _applicantServiceMock.Setup(x => x.GetAsync(applicantId)).ReturnsAsync(mockedApplicant);
@@ -73,9 +73,9 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task PostAsync_ShouldReturnCreatedApplicant_WhenApplicantModelIsValid()
         {
             // Arrange
-            var requestApplicant = MockValidApplicant();
-            var applicantId = 1;
-            var responseApplicant = MockValidApplicant();
+            var requestApplicant = ApplicantMocks.MockValidApplicant();
+            const int applicantId = 1;
+            var responseApplicant = ApplicantMocks.MockValidApplicant();
             responseApplicant.Id = applicantId;
 
             _applicantServiceMock.Setup(x => x.CreateAsync(requestApplicant)).ReturnsAsync(responseApplicant);
@@ -93,7 +93,7 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task PutAsync_ShouldReturnOk_WhenApplicantExists()
         {
             // Arrange
-            var requestApplicant = MockValidApplicant();
+            var requestApplicant = ApplicantMocks.MockValidApplicant();
             _applicantServiceMock.Setup(x => x.UpdateAsync(requestApplicant)).ReturnsAsync(true);
 
             // Act
@@ -107,7 +107,7 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task PutAsync_ShouldReturnNoContent_WhenApplicantDoesNotExist()
         {
             // Arrange
-            var requestApplicant = MockValidApplicant();
+            var requestApplicant = ApplicantMocks.MockValidApplicant();
             _applicantServiceMock.Setup(x => x.UpdateAsync(requestApplicant)).ReturnsAsync(false);
 
             // Act
@@ -121,7 +121,7 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task DeleteAsync_ShouldReturnNoContent_WhenApplicantDoesNotExist()
         {
             // Arrange
-            var applicantId = 1;
+            const int applicantId = 1;
             _applicantServiceMock.Setup(x => x.DeleteAsync(applicantId)).ReturnsAsync(false);
 
             // Act
@@ -135,7 +135,7 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
         public async Task DeleteAsync_ShouldReturnOk_WhenApplicantExists()
         {
             // Arrange
-            var applicantId = 1;
+            const int applicantId = 1;
             _applicantServiceMock.Setup(x => x.DeleteAsync(applicantId)).ReturnsAsync(true);
 
             // Act
@@ -143,20 +143,6 @@ namespace Hahn.ApplicationProcess.December2020.Test.Web.Controllers
 
             // Assert
             Assert.IsType<OkResult>(controllerResult);
-        }
-
-        private static Applicant MockValidApplicant()
-        {
-            return new()
-            {
-                Name = "Felipe Test",
-                FamilyName = "Suarez Test",
-                Address = "CL 55 14 47 APT 222",
-                Age = 31,
-                CountryOfOrigin = "CO",
-                EmailAddress = "felipe@gmail.com",
-                Hired = true
-            };
         }
     }
 }

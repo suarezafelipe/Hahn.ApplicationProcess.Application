@@ -20,7 +20,7 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Services
 
         public async Task<Applicant> CreateAsync(Applicant applicant)
         {
-            return await _applicantRepository.Create(applicant);
+            return await _applicantRepository.CreateAsync(applicant);
         }
 
         public async Task<bool> UpdateAsync(Applicant applicant)
@@ -30,12 +30,12 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Services
             if (exists == null)
                 return false;
 
-            return await _applicantRepository.Update(applicant);
+            return await _applicantRepository.UpdateAsync(applicant);
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            return await _applicantRepository.Delete(id);
+            return await _applicantRepository.DeleteAsync(id);
         }
     }
 }
