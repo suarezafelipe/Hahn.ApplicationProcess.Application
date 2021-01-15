@@ -9,7 +9,7 @@ namespace Hahn.ApplicationProcess.December2020.Web.StartupExtensions
 {
     public static class Swagger
     {
-        // This is done to avoid too much code in the Startup.cs class with code, as it tends to grow pretty quickly in most projects.
+        // This is done to avoid too much code in the Startup.cs class, as it tends to grow pretty quickly in most projects.
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
