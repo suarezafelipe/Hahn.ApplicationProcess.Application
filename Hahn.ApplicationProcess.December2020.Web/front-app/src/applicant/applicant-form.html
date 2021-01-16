@@ -1,0 +1,76 @@
+<template>
+  <h2>Applicant form</h2>
+  <h3>${message}</h3>
+  <form class="row" submit.delegate="submit()">
+    <ul if.bind="controller.errors">
+      <li repeat.for="error of controller.errors">${error.message}</li>
+    </ul>
+
+    <div class="col-12 col-md-6 mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        value.bind="applicant.name"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="familyName" class="form-label">Family Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="familyName"
+        value.bind="applicant.familyName"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        value.bind="applicant.addresss"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="country" class="form-label">Country of Origin</label>
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        value.bind="applicant.countryOfOrigin"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        value.bind="applicant.email"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input
+        type="number"
+        class="form-control"
+        id="age"
+        value.bind="applicant.age"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="hired"
+          value.bind="applicant.hired"
+        />
+        <label class="form-check-label" for="hired">Hired</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</template>

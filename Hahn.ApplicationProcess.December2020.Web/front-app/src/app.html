@@ -1,0 +1,22 @@
+<template>
+  <require from="./layout/navbar"></require>
+  <require from="./layout/app-footer"></require>
+  <require from="./applicant/applicant-language"></require>
+  <require from="./applicant/applicant-form"></require>
+  <require from="./styles.css"></require>
+
+  <navbar></navbar>
+  <main class="app-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-4 col-xl-3">
+          <applicant-language></applicant-language>
+        </div>
+        <div class="col-12 col-sm-8 col-xl-9">
+          <applicant-form></applicant-form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</template>
