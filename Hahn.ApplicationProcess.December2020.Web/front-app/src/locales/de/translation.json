@@ -1,0 +1,24 @@
+{
+    "navbar": "Hahn Software Bewerbung | Felipe Suarez",
+    "language": "Sprache",
+    "submit": "Einreichen",
+    "reset": "Zurücksetzen",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
+    "selectLanguage": "Bitte wahlen ihre Sprache",
+    "applicantForm": {
+        "title": "Bewerbung",
+        "description": "Füllen Sie dazu die folgenden Zeilen",
+        "name": "Name",
+        "familyName": "Nachname",
+        "address": "Adresse",
+        "email": "E-Mail-Addresse",
+        "countryOfOrigin": "Herkunftsland",
+        "age": "Alter",
+        "hired": "Gemietet"
+    },
+    "resetDialog": {
+        "title": "Bitte bestätigen",
+        "description": "?"
+    }
+}

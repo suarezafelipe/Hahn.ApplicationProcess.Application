@@ -1,0 +1,24 @@
+{
+    "navbar": "Hahn Software Application | Felipe Suarez",
+    "language": "Language",
+    "submit": "Submit",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "selectLanguage": "Please select your language",
+    "applicantForm": {
+        "title": "New Applicant",
+        "description": "Please fill the following form",
+        "name": "Name",
+        "familyName": "Family Name",
+        "address": "Address",
+        "email": "Email",
+        "countryOfOrigin": "Country of Origin",
+        "age": "Age",
+        "hired": "Hired"
+    },
+    "resetDialog": {
+        "title": "Please confirm",
+        "description": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?"
+    }
+}

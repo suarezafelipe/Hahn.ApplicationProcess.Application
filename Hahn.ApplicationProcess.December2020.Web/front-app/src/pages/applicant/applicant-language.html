@@ -1,1 +1,52 @@
-<template> <h3>${message}</h3> </template>
+<template>
+  <style>
+    img:hover {
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: #f7f7f7;      
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.125)
+    }
+  </style>
+
+  <div class="card mt-5">
+    <div class="card-header">
+      <h5 t="language">Language</h5>
+    </div>
+    <div class="card-body">      
+      <p class="card-text" t="selectLanguage">Please select your language</p>
+      <div class="row">
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <div class="${ currentLocale === 'de' ? 'selected' : '' }">
+            <img
+            click.delegate="setLocale('de')"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAABQBAMAAADFB6uTAAAAD1BMVEXdAAAAAAD/zgBKAAD0igCIH1qBAAAAPUlEQVRYw+3MMQ0AIAwAsEkABwQFJBjgwL8mROxZSCug0dNaOBwOh8NR9dhpKwDgZzftxEwbDofD4XBUPR6r93nq8Sh15QAAAABJRU5ErkJggg=="
+            alt="deutsch"
+            width="60"
+            height="36"          
+            ></img>
+          </div>
+        </div>
+        
+
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <div class="${ currentLocale === 'en' ? 'selected' : '' }">
+            <img
+            click.delegate="setLocale('en')"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAABQBAMAAABsc2MHAAAAMFBMVEXIEC7///8BIWnXTWRBWY/xw8pWbJwwSoX0ztS/yNo5Uoq1v9SyvNLheYo9VYzhfI39p58AAAABwklEQVRYw+3ZsU3EQBAF0N/CJEik24J1EgXQARUQUgNkxAiREBCQUwElXAu0QAeEBDa+3Z0/8xchEe3PTl4/OfLNfONgW46F59oMW8zOgkN3ZvcAgAOgxBHw5BmkOABWnkGKGqw9gxQl2Hjb2UxUYOsZrpQowM4ztD+JmIO9ZzAlpqDzDJ9KzEDvvaK8CTEBb92tLwVFiTHIvIKixBCkXkGh4rsGubeCqRiAgbeBmcjByPsBE5GCobeDscjA2DuBoUjAxKvASPRg5tVgIDow9RqQiz2Yey1IxQ4UXgcysQWV14NEfKrBc+U5kIg1KL2Cyz43Zg/LsizLBwMf20vP7nbYQOonlGcn+HdwZmZmZub3L835n/JPIBtF1qwDyRcD90tkFCHD0pp1kb7gT7hf9MOS9PpxTohQnh84cxHKIyNxKkJ5bGjPRCiPrhWJCOXxxScWobxgNQtFxN4xXR4jEcoL19tAhPLiBZyLUF5SEVARystKDCZCeWnNQkQoLy+CvAjliarKiVCeKtN6EcqTdV93O5SnC8kWgPIGKtOGgPJGSt1ahPKGaudaVN5YMV6Jyhus7k+i8kY/Luyi8oY/f2ziNzYLMvEwqld3AAAAAElFTkSuQmCC"
+            alt="english"
+            width="60"
+            height="36"
+            class="d-flex"          
+          ></img>
+          </div>
+        </div>
+
+        
+      </div>      
+    </div>
+  </div>
+</template>

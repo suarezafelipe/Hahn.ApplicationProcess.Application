@@ -36,10 +36,16 @@
         class="btn btn-secondary"
         data-bs-dismiss="modal"
         click.delegate="cancel()"
+        t="cancel"
       >
         Cancel
       </button>
-      <button type="button" class="btn btn-primary" click.delegate="ok()">
+      <button
+        type="button"
+        class="btn btn-primary"
+        click.delegate="ok()"
+        t="confirm"
+      >
         Confirm
       </button>
     </div>

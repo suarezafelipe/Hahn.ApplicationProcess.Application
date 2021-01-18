@@ -1,3 +1,1 @@
-export class Navbar {
-    public message = "Hahn Software Application"
-}
+export class Navbar {}
