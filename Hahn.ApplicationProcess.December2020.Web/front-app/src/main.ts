@@ -16,8 +16,8 @@ export function configure(aurelia: Aurelia): void {
         backend: {
           loadPath: "./locales/{{lng}}/{{ns}}.json",
         },
-        lng: "de",
-        fallbackLng: "en",
+        lng: "en",
+        fallbackLng: "de",
         debug: false,
       });
     });

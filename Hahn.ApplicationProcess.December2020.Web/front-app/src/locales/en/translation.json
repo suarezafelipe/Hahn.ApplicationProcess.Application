@@ -15,10 +15,21 @@
         "email": "Email",
         "countryOfOrigin": "Country of Origin",
         "age": "Age",
-        "hired": "Hired"
+        "hired": "Hired",
+        "nameLengthValidation": "Name must be at least 5 characters.",
+        "nameRequiredValidation": "Name is required.",
+        "familyNameLengthValidation": "Family Name must be at least 5 characters.",
+        "familyNameRequiredValidation": "Family Name is required.",
+        "addressRequiredValidation": "Address  must be at least 10 characters.",
+        "addressLengthValidation": "Address  must be at least 10 characters.",
+        "countryValidation": "Country is not valid.",
+        "emailRequiredValidation": "Email is required.",
+        "emailValidation": "Email is not a valid email.",
+        "ageRequiredValidation": "Age is required.",
+        "ageRangeValidation": "Age must be between or equal to 20 and 60."
     },
     "resetDialog": {
         "title": "Please confirm",
-        "description": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?"
+        "description": "Are you sure you want to reset all the data?"
     }
 }

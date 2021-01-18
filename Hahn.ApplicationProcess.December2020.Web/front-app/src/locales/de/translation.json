@@ -15,10 +15,21 @@
         "email": "E-Mail-Addresse",
         "countryOfOrigin": "Herkunftsland",
         "age": "Alter",
-        "hired": "Gemietet"
+        "hired": "Gemietet",
+        "nameLengthValidation": "Der Name muss mindestens 5 Zeichen lang sein.",
+        "nameRequiredValidation": "Name ist erforderlich.",
+        "familyNameLengthValidation": "Der Nachname muss mindestens 5 Zeichen lang sein.",
+        "familyNameRequiredValidation": "Nachname ist erforderlich.",
+        "addressRequiredValidation": "Adresse ist erforderlich.",
+        "addressValidation": "Die Adresse muss mindestens 10 Zeichen lang sein.",
+        "countryValidation": "Das von Ihnen eingegebene Land ist ungültig.",
+        "emailRequiredValidation": "E-Mail ist erforderlich.",
+        "emailValidation": "E-Mail ist keine gültige E-Mail.",
+        "ageRequiredValidation": "Alter ist erforderlich",
+        "ageRangeValidation": "Das Alter muss zwischen 20 und 60 Jahren liegen."
     },
     "resetDialog": {
         "title": "Bitte bestätigen",
-        "description": "?"
+        "description": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?"
     }
 }
