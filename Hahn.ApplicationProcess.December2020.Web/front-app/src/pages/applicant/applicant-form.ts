@@ -5,8 +5,8 @@ import {
   ValidationController,
 } from "aurelia-validation";
 import { DialogService } from "aurelia-dialog";
-import { Dialog } from "../layout/dialog";
-import { BootstrapFormRenderer } from "../resources/bootstrap-form-renderer";
+import { Dialog } from "../../components/dialog";
+import { BootstrapFormRenderer } from "../../resources/bootstrap-form-renderer";
 
 @autoinject
 export class ApplicantForm {

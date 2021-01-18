@@ -2,7 +2,6 @@ import { RenderInstruction, ValidateResult } from "aurelia-validation";
 
 export class BootstrapFormRenderer {
   render(instruction: RenderInstruction) {
-    console.log("rendered felipe!");
     for (let { result, elements } of instruction.unrender) {
       for (let element of elements) {
         this.remove(element, result);
