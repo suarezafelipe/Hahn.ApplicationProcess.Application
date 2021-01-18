@@ -1,4 +1,4 @@
-import { observable, inject } from "aurelia-framework";
+import { observable, autoinject } from "aurelia-framework";
 import {
   ValidationRules,
   ValidationControllerFactory,
@@ -6,8 +6,9 @@ import {
 } from "aurelia-validation";
 import { DialogService } from "aurelia-dialog";
 import { Dialog } from "../layout/dialog";
+import { BootstrapFormRenderer } from "../resources/bootstrap-form-renderer";
 
-@inject(ValidationControllerFactory, DialogService)
+@autoinject
 export class ApplicantForm {
   public message = "hello from applicant form";
 
@@ -24,8 +25,12 @@ export class ApplicantForm {
   isApplicantComplete: boolean;
   dialogService: DialogService;
 
-  constructor(ValidationControllerFactory, DialogService) {
+  constructor(
+    ValidationControllerFactory: ValidationControllerFactory,
+    DialogService: DialogService
+  ) {
     this.controller = ValidationControllerFactory.createForCurrentScope();
+    this.controller.addRenderer(new BootstrapFormRenderer());
     this.isApplicantComplete = false;
     this.isEmptyApplicant = true;
     this.dialogService = DialogService;

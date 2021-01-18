@@ -2,11 +2,8 @@
   <h2>Applicant form</h2>
   <h3>${message}</h3>
   <form>
-    <ul if.bind="controller.errors">
-      <li repeat.for="error of controller.errors">${error.message}</li>
-    </ul>
     <div class="row">
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="name" class="form-label">Name</label>
         <input
           type="text"
@@ -15,7 +12,7 @@
           value.bind="name & validate"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="familyName" class="form-label">Family Name</label>
         <input
           type="text"
@@ -24,7 +21,7 @@
           value.bind="familyName & validate"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="address" class="form-label">Address</label>
         <input
           type="text"
@@ -33,7 +30,7 @@
           value.bind="address & validate"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="country" class="form-label">Country of Origin</label>
         <input
           type="text"
@@ -42,7 +39,7 @@
           value.bind="countryOfOrigin"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="email" class="form-label">Email</label>
         <input
           type="email"
@@ -51,7 +48,7 @@
           value.bind="email & validate"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <label for="age" class="form-label">Age</label>
         <input
           type="number"
@@ -60,7 +57,7 @@
           value.bind="age & validate"
         />
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="form-group col-12 col-md-6 mb-3">
         <div class="form-check form-switch">
           <input
             class="form-check-input"
