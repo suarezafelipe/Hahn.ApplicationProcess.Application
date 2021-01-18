@@ -1,0 +1,47 @@
+<template>
+  <style>
+    .backdrop {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 500;
+      left: 0;
+      top: 0;
+      background-color: lightgrey;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-content {
+      z-index: 500;
+    }
+  </style>
+  <div class="backdrop"></div>
+  <div class="modal-content mt-5">
+    <div class="modal-header">
+      <h5 class="modal-title">${title}</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        click.delegate="cancel()"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <p>${message}</p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+        click.delegate="cancel()"
+      >
+        Cancel
+      </button>
+      <button type="button" class="btn btn-primary" click.delegate="ok()">
+        Confirm
+      </button>
+    </div>
+  </div>
+</template>

@@ -4,8 +4,10 @@ import {
   ValidationControllerFactory,
   ValidationController,
 } from "aurelia-validation";
+import { DialogService } from "aurelia-dialog";
+import { Dialog } from "../layout/dialog";
 
-@inject(ValidationControllerFactory)
+@inject(ValidationControllerFactory, DialogService)
 export class ApplicantForm {
   public message = "hello from applicant form";
 
@@ -20,12 +22,16 @@ export class ApplicantForm {
   controller: ValidationController;
   isEmptyApplicant: boolean;
   isApplicantComplete: boolean;
+  dialogService: DialogService;
 
-  constructor(ValidationControllerFactory) {
+  constructor(ValidationControllerFactory, DialogService) {
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.isApplicantComplete = false;
     this.isEmptyApplicant = true;
+    this.dialogService = DialogService;
   }
+
+  attached(): void {}
 
   created() {
     ValidationRules.ensure("name")
@@ -120,5 +126,21 @@ export class ApplicantForm {
     this.email = "";
     this.age = null;
     this.hired = false;
+  }
+
+  openDialog(): void {
+    const self = this;
+    this.dialogService.open({
+      viewModel: Dialog,
+      model: {
+        message: "Are you sure you want to reset all the data?",
+        title: "Please confirm",
+        action: this.action.bind(self),
+      },
+    });
+  }
+
+  action(): void {
+    this.reset();
   }
 }
