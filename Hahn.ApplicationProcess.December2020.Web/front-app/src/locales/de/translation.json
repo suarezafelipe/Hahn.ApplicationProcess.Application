@@ -1,7 +1,7 @@
 {
     "navbar": "Hahn Software Bewerbung | Felipe Suarez",
     "language": "Sprache",
-    "submit": "Einreichen",
+    "submit": "Speichern",
     "reset": "Zurücksetzen",
     "confirm": "Bestätigen",
     "cancel": "Abbrechen",
@@ -12,7 +12,7 @@
         "name": "Name",
         "familyName": "Nachname",
         "address": "Adresse",
-        "email": "E-Mail-Addresse",
+        "email": "E-Mail Addresse",
         "countryOfOrigin": "Herkunftsland",
         "age": "Alter",
         "hired": "Gemietet",
@@ -22,7 +22,8 @@
         "familyNameRequiredValidation": "Nachname ist erforderlich.",
         "addressRequiredValidation": "Adresse ist erforderlich.",
         "addressValidation": "Die Adresse muss mindestens 10 Zeichen lang sein.",
-        "countryValidation": "Das von Ihnen eingegebene Land ist ungültig.",
+        "countryRequiredValidation": "Herkunftsland ist erforderlich.",
+        "countryValidation": "Das von Ihnen eingegebene Herkunftsland ist ungültig.",
         "emailRequiredValidation": "E-Mail ist erforderlich.",
         "emailValidation": "E-Mail ist keine gültige E-Mail.",
         "ageRequiredValidation": "Alter ist erforderlich",
@@ -30,6 +31,6 @@
     },
     "resetDialog": {
         "title": "Bitte bestätigen",
-        "description": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?"
+        "description": "Sind sie sicher, dass sie alle Daten zurücksetzen möchten?"
     }
 }

@@ -9,11 +9,10 @@ import { Dialog } from "../../components/dialog";
 import { BootstrapFormRenderer } from "../../resources/bootstrap-form-renderer";
 import { I18N } from "aurelia-i18n";
 import { EventAggregator, Subscription } from "aurelia-event-aggregator";
+import { HttpClient } from "aurelia-fetch-client";
 
 @autoinject
 export class ApplicantForm {
-  public message = "hello from applicant form";
-
   @observable name: string;
   @observable familyName: string;
   @observable address: string;
@@ -32,7 +31,8 @@ export class ApplicantForm {
     ValidationControllerFactory: ValidationControllerFactory,
     DialogService: DialogService,
     private i18n: I18N,
-    private ea: EventAggregator
+    private ea: EventAggregator,
+    private httpClient: HttpClient
   ) {
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
@@ -44,43 +44,11 @@ export class ApplicantForm {
     });
   }
 
-  attached(): void {}
-
   created() {
     this.setValidation();
   }
 
-  setValidation() {
-    ValidationRules.ensure("name")
-      .required()
-      .withMessage(this.i18n.tr("applicantForm.nameRequiredValidation"))
-      .minLength(5)
-      .withMessage(this.i18n.tr("applicantForm.nameLengthValidation"))
-      .ensure("familyName")
-      .required()
-      .withMessage(this.i18n.tr("applicantForm.familyNameRequiredValidation"))
-      .minLength(5)
-      .withMessage(this.i18n.tr("applicantForm.familyNameLengthValidation"))
-      .ensure("address")
-      .required()
-      .withMessage(this.i18n.tr("applicantForm.addressRequiredValidation"))
-      .minLength(10)
-      .withMessage(this.i18n.tr("applicantForm.addressLengthValidation"))
-      .ensure("email")
-      .required()
-      .withMessage(this.i18n.tr("applicantForm.emailRequiredValidation"))
-      .email()
-      .withMessage(this.i18n.tr("applicantForm.emailValidation"))
-      .ensure("age")
-      .required()
-      .withMessage(this.i18n.tr("applicantForm.ageRequiredValidation"))
-      .range(20, 60)
-      .withMessage(this.i18n.tr("applicantForm.ageRangeValidation"))
-      .on(ApplicantForm);
-  }
-
   submit() {
-    console.log("submit triggered!");
     console.log(this.name);
     console.log(this.age);
     console.log(this.hired);
@@ -107,6 +75,11 @@ export class ApplicantForm {
   }
 
   ageChanged() {
+    this.isEmptyApplicant = this.isFormEmpty();
+    this.isApplicantComplete = this.isFormFilled();
+  }
+
+  countryOfOriginChanged() {
     this.isEmptyApplicant = this.isFormEmpty();
     this.isApplicantComplete = this.isFormFilled();
   }
@@ -173,5 +146,46 @@ export class ApplicantForm {
 
   detached() {
     this.localeSubscription.dispose();
+  }
+
+  setValidation() {
+    ValidationRules.ensure("name")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.nameRequiredValidation"))
+      .minLength(5)
+      .withMessage(this.i18n.tr("applicantForm.nameLengthValidation"))
+      .ensure("familyName")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.familyNameRequiredValidation"))
+      .minLength(5)
+      .withMessage(this.i18n.tr("applicantForm.familyNameLengthValidation"))
+      .ensure("address")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.addressRequiredValidation"))
+      .minLength(10)
+      .withMessage(this.i18n.tr("applicantForm.addressLengthValidation"))
+      .ensure("email")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.emailRequiredValidation"))
+      .email()
+      .withMessage(this.i18n.tr("applicantForm.emailValidation"))
+      .ensure("age")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.ageRequiredValidation"))
+      .range(20, 60)
+      .withMessage(this.i18n.tr("applicantForm.ageRangeValidation"))
+      .ensure("countryOfOrigin")
+      .required()
+      .withMessage(this.i18n.tr("applicantForm.countryRequiredValidation"))
+      .satisfies((country) => this.validateCountry(country))
+      .withMessage(this.i18n.tr("applicantForm.countryValidation"))
+      .on(ApplicantForm);
+  }
+
+  async validateCountry(country: string) {
+    return await this.httpClient
+      .fetch(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`)
+      .then(({ status }) => status === 200)
+      .catch(() => false);
   }
 }

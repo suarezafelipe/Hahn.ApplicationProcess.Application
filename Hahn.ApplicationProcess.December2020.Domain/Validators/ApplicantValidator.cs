@@ -27,7 +27,7 @@ namespace Hahn.ApplicationProcess.December2020.Domain.Validators
         private static bool ValidateCountry(Applicant applicant, string country)
         {
             RestClient client = new("https://restcountries.eu");
-            RestRequest request = new($"//rest/v2/name/{country}?fullText=true");
+            RestRequest request = new($"/rest/v2/name/{country}?fullText=true");
 
             var apiResponse = client.GetAsync<List<CountriesApiModel>>(request).GetAwaiter().GetResult();
 

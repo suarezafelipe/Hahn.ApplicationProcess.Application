@@ -22,6 +22,7 @@
         "familyNameRequiredValidation": "Family Name is required.",
         "addressRequiredValidation": "Address  must be at least 10 characters.",
         "addressLengthValidation": "Address  must be at least 10 characters.",
+        "countryRequiredValidation": "Country is required.",
         "countryValidation": "Country is not valid.",
         "emailRequiredValidation": "Email is required.",
         "emailValidation": "Email is not a valid email.",
