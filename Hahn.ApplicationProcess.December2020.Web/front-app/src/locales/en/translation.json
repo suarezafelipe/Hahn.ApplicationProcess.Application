@@ -5,6 +5,7 @@
     "reset": "Reset",
     "confirm": "Confirm",
     "cancel": "Cancel",
+    "loading": "Loading...",
     "selectLanguage": "Please select your language",
     "applicantForm": {
         "title": "New Applicant",

@@ -30,6 +30,7 @@ export class ApplicantForm {
   isApplicantComplete: boolean;
   dialogService: DialogService;
   localeSubscription: Subscription;
+  loading = false;
 
   constructor(
     ValidationControllerFactory: ValidationControllerFactory,
@@ -55,6 +56,7 @@ export class ApplicantForm {
   }
 
   submit() {
+    this.loading = true;
     this.applicantService
       .createApplicant({
         name: this.name,
@@ -66,9 +68,11 @@ export class ApplicantForm {
         hired: this.hired,
       })
       .then((result) => {
+        this.loading = false;
         this.router.navigateToRoute("confirmation", { id: result.id });
       })
       .catch((error: Error) => {
+        this.loading = false;
         if (isJson(error.message)) {
           this.dialogService.open({
             viewModel: Dialog,

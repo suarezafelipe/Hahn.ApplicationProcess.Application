@@ -100,26 +100,38 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <div if.bind="isApplicantComplete">
-              <button
-                type="button"
-                class="btn btn-primary w-100"
-                disabled.bind="controller.errors.length > 0"
-                click.delegate="submit()"
-                t="submit"
-              >
-                Submit
+            <div if.bind="loading">
+              <button class="btn btn-primary w-100" type="button" disabled>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <span t="loading">Loading...</span>
               </button>
             </div>
             <div else>
-              <button
-                type="button"
-                class="btn btn-primary w-100"
-                disabled
-                t="submit"
-              >
-                Submit
-              </button>
+              <div if.bind="isApplicantComplete">
+                <button
+                  type="button"
+                  class="btn btn-primary w-100"
+                  disabled.bind="controller.errors.length > 0"
+                  click.delegate="submit()"
+                  t="submit"
+                >
+                  Submit
+                </button>
+              </div>
+              <div else>
+                <button
+                  type="button"
+                  class="btn btn-primary w-100"
+                  disabled
+                  t="submit"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
           <div class="col-6">
