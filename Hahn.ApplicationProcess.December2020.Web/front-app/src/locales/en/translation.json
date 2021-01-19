@@ -32,5 +32,10 @@
     "resetDialog": {
         "title": "Please confirm",
         "description": "Are you sure you want to reset all the data?"
+    },
+    "confirmation": {
+        "title": "Success",
+        "description": "The applicant was created successfully.",
+        "button": "Create a new Applicant"
     }
 }

@@ -1,0 +1,67 @@
+<template>
+  <style>
+    .list-group .col {
+      width: 360px;
+    }
+  </style>
+  <div class="card mt-5">
+    <h5 class="card-header" t="confirmation.title">Success</h5>
+    <div class="card-body">
+      <p class="card-text" t="confirmation.description">
+        The applicant was created successfully
+      </p>
+
+      <div class="row">
+        <div class="col-6 col-md-4">ID</div>
+        <div class="col-6 col-md-8">${applicant.id}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.name">Name</div>
+        <div class="col-6 col-md-8">${applicant.name}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.familyName">
+          Family Name
+        </div>
+        <div class="col-6 col-md-8">${applicant.familyName}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.address">Address</div>
+        <div class="col-6 col-md-8">${applicant.address}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.email">Email</div>
+        <div class="col-6 col-md-8">${applicant.emailAddress}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.countryOfOrigin">
+          Country of Origin
+        </div>
+        <div class="col-6 col-md-8">${applicant.countryOfOrigin}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.age">Age</div>
+        <div class="col-6 col-md-8">${applicant.age}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-4" t="applicantForm.hired">Hired</div>
+        <div class="col-6 col-md-8">${applicant.hired ? 'Yes' : 'No'}</div>
+      </div>
+
+      <a
+        class="btn btn-primary mt-3"
+        t="confirmation.button"
+        click.delegate="createNewApplicant()"
+      >
+        Create a new Applicant
+      </a>
+    </div>
+  </div>
+</template>

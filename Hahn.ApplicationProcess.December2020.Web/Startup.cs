@@ -35,6 +35,8 @@ namespace Hahn.ApplicationProcess.December2020.Web
             app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors(builder => builder.WithOrigins("http://localhost:8080", "https://productionUrl.com")
+                .AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

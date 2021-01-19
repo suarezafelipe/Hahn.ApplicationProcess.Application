@@ -1,15 +1,18 @@
 import { observable, autoinject } from "aurelia-framework";
+import { DialogService } from "aurelia-dialog";
+import { EventAggregator, Subscription } from "aurelia-event-aggregator";
+import { HttpClient } from "aurelia-fetch-client";
+import { I18N } from "aurelia-i18n";
+import { Router } from "aurelia-router";
 import {
   ValidationRules,
   ValidationControllerFactory,
   ValidationController,
 } from "aurelia-validation";
-import { DialogService } from "aurelia-dialog";
-import { Dialog } from "../../components/dialog";
+
+import { ApplicantService } from "services/applicant/applicant-service";
 import { BootstrapFormRenderer } from "../../resources/bootstrap-form-renderer";
-import { I18N } from "aurelia-i18n";
-import { EventAggregator, Subscription } from "aurelia-event-aggregator";
-import { HttpClient } from "aurelia-fetch-client";
+import { Dialog } from "../../components/dialog";
 
 @autoinject
 export class ApplicantForm {
@@ -32,7 +35,9 @@ export class ApplicantForm {
     DialogService: DialogService,
     private i18n: I18N,
     private ea: EventAggregator,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private applicantService: ApplicantService,
+    private router: Router
   ) {
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.controller.addRenderer(new BootstrapFormRenderer());
@@ -49,9 +54,22 @@ export class ApplicantForm {
   }
 
   submit() {
-    console.log(this.name);
-    console.log(this.age);
-    console.log(this.hired);
+    console.log("on submit!!");
+    this.applicantService
+      .createApplicant({
+        name: this.name,
+        familyName: this.familyName,
+        address: this.address,
+        countryOfOrigin: this.countryOfOrigin,
+        emailAddress: this.email,
+        age: this.age,
+        hired: this.hired,
+      })
+      .then((result) => {
+        console.log(result);
+        this.router.navigateToRoute("confirmation", { id: result.id });
+      })
+      .catch((error) => console.log(error));
   }
 
   nameChanged() {

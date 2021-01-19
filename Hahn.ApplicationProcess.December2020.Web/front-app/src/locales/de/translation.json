@@ -32,5 +32,10 @@
     "resetDialog": {
         "title": "Bitte bestätigen",
         "description": "Sind sie sicher, dass sie alle Daten zurücksetzen möchten?"
+    },
+    "confirmation": {
+        "title": "Erfolg",
+        "description": "Der Kandidat wurde erfolgreich erstellt.",
+        "button": "Erstellen sie einen neuen Kandidaten"
     }
 }
