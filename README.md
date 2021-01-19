@@ -31,14 +31,15 @@ Most of the domain layer is unit tested. The Controllers are unit tested as well
 
 ### Ports
 
-The backend expects that the frontend runs on the default port for Aurelia applications: **`https://localhost:8080`**. If running on another port, you need to update it in the Startup.cs class under the `app.useCors` section.
+The backend expects that the frontend runs on the default port for Aurelia applications: **`http://localhost:8080`**. If running on another port, you need to update it in the Startup.cs class under the `app.useCors` section.
 
 The frontend expects that the API runs on the default port for dotnet APIs: **`https://localhost:5001`**. If running on another port, you need to update it in the `/config/environment.json` file
 
 
 ## Comments on the delivery
 
-- All requirements were fulfilled according to the specs
+- All requirements were fulfilled according to the specs.
+- CI was added to verify that both the front and back end projects build correctly. Additionally unit tests for the backend are also performed.
 
 #### Backend
 
