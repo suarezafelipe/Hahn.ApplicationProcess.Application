@@ -1,5 +1,6 @@
 import { DialogController } from "aurelia-dialog";
 import { autoinject } from "aurelia-framework";
+import DialogModel from "../models/dialogModel";
 
 @autoinject
 export class Dialog {
@@ -12,7 +13,7 @@ export class Dialog {
     dialogController.settings.centerHorizontalOnly = true;
   }
 
-  activate(model: any) {
+  activate(model: DialogModel) {
     this.message = model.message;
     this.listOfMessages = model.listOfMessages;
     this.title = model.title;

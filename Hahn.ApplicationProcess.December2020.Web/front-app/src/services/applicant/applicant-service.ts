@@ -1,21 +1,20 @@
 import { autoinject } from "aurelia-framework";
-import { HttpClient } from "aurelia-fetch-client";
-import * as environment from "../../../config/environment.json";
-import { Applicant } from "../../models/applicant";
+import { I18N } from "aurelia-i18n";
 import axios from "axios";
+import Applicant from "../../models/applicant";
+import * as environment from "../../../config/environment.json";
 
 @autoinject
 export class ApplicantService {
-  constructor(private httpClient: HttpClient) {
-    httpClient.configure((config) => {
-      config.useStandardConfiguration();
-      config.withBaseUrl(environment.apiUrl);
-    });
-  }
+  constructor(private i18n: I18N) {}
 
   createApplicant(applicant: Applicant) {
     return axios
-      .post(`${environment.apiUrl}applicant`, applicant)
+      .post(`${environment.apiUrl}applicant`, applicant, {
+        headers: {
+          locale: this.i18n.getLocale(),
+        },
+      })
       .then(({ data }) => data)
       .catch(({ response }) => {
         throw Error(
@@ -27,9 +26,8 @@ export class ApplicantService {
   }
 
   getApplicant(id: number) {
-    return this.httpClient
-      .fetch(`applicant/${id}`)
-      .then((response) => response.json())
-      .then((applicant) => applicant);
+    return axios
+      .get(`${environment.apiUrl}applicant/${id}`)
+      .then(({ data }) => data);
   }
 }

@@ -16,18 +16,18 @@
         "countryOfOrigin": "Herkunftsland",
         "age": "Alter",
         "hired": "Gemietet",
-        "nameLengthValidation": "Der Name muss mindestens 5 Zeichen lang sein.",
+        "nameLengthValidation": "Die Länge von 'Name' muss größer oder gleich 5 sein.",
         "nameRequiredValidation": "Name ist erforderlich.",
-        "familyNameLengthValidation": "Der Nachname muss mindestens 5 Zeichen lang sein.",
+        "familyNameLengthValidation": "Die Länge von 'Nachname' muss größer oder gleich 5 sein.",
         "familyNameRequiredValidation": "Nachname ist erforderlich.",
         "addressRequiredValidation": "Adresse ist erforderlich.",
-        "addressValidation": "Die Adresse muss mindestens 10 Zeichen lang sein.",
+        "addressValidation": "Die Länge von 'Adresse' muss größer oder gleich 10 sein.",
         "countryRequiredValidation": "Herkunftsland ist erforderlich.",
         "countryValidation": "Das von Ihnen eingegebene Herkunftsland ist ungültig.",
         "emailRequiredValidation": "E-Mail ist erforderlich.",
-        "emailValidation": "E-Mail ist keine gültige E-Mail.",
+        "emailValidation": "'E-Mail' ist keine gültige E-Mail-Adresse.",
         "ageRequiredValidation": "Alter ist erforderlich",
-        "ageRangeValidation": "Das Alter muss zwischen 20 und 60 Jahren liegen."
+        "ageRangeValidation": "Das Alter muss zwischen 20 und 60 sein."
     },
     "resetDialog": {
         "title": "Bitte bestätigen",

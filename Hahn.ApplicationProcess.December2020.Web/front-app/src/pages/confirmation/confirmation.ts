@@ -1,7 +1,7 @@
-import { Router } from "aurelia-router";
-import { Applicant } from "../../models/applicant";
-import { ApplicantService } from "../../services/applicant/applicant-service";
 import { autoinject } from "aurelia-framework";
+import { Router } from "aurelia-router";
+import { ApplicantService } from "../../services/applicant/applicant-service";
+import Applicant from "../../models/applicant";
 
 @autoinject
 export class ApplicationSuccess {

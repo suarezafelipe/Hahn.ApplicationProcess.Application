@@ -1,4 +1,4 @@
-export interface Applicant {
+export default interface Applicant {
   name: string;
   familyName: string;
   address: string;
