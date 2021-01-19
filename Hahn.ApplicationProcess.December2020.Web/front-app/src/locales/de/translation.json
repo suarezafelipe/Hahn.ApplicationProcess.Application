@@ -37,5 +37,9 @@
         "title": "Erfolg",
         "description": "Der Kandidat wurde erfolgreich erstellt.",
         "button": "Erstellen sie einen neuen Kandidaten"
+    },
+    "errorDialog": {
+        "title": "Error",
+        "description": "Es ist ein Server- oder Netzwerkfehler aufgetreten. Bitte versuchen sie es später noch einmal"
     }
 }

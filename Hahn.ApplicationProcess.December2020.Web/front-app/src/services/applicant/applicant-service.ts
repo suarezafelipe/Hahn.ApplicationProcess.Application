@@ -1,7 +1,8 @@
 import { autoinject } from "aurelia-framework";
-import { HttpClient, json } from "aurelia-fetch-client";
+import { HttpClient } from "aurelia-fetch-client";
 import * as environment from "../../../config/environment.json";
 import { Applicant } from "../../models/applicant";
+import axios from "axios";
 
 @autoinject
 export class ApplicantService {
@@ -13,14 +14,16 @@ export class ApplicantService {
   }
 
   createApplicant(applicant: Applicant) {
-    return this.httpClient
-      .fetch("applicant", {
-        method: "post",
-        body: json(applicant),
-      })
-      .then((response) => response.json())
-      .then((applicant) => applicant)
-      .catch((error) => console.log(error));
+    return axios
+      .post(`${environment.apiUrl}applicant`, applicant)
+      .then(({ data }) => data)
+      .catch(({ response }) => {
+        throw Error(
+          response.status !== 400
+            ? "There was a server or network error. Please try again later"
+            : JSON.stringify(response.data.errors)
+        );
+      });
   }
 
   getApplicant(id: number) {

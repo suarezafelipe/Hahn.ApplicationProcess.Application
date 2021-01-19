@@ -6,6 +6,7 @@ export class Dialog {
   title?: string;
   message?: string;
   action?: (args?: any) => {};
+  listOfMessages?: Array<string>;
 
   constructor(private dialogController: DialogController) {
     dialogController.settings.centerHorizontalOnly = true;
@@ -13,12 +14,15 @@ export class Dialog {
 
   activate(model: any) {
     this.message = model.message;
+    this.listOfMessages = model.listOfMessages;
     this.title = model.title;
     this.action = model.action;
   }
 
   ok(): void {
-    this.action();
+    if (this.action) {
+      this.action();
+    }
     this.dialogController.ok();
   }
 

@@ -9,10 +9,11 @@ import {
   ValidationControllerFactory,
   ValidationController,
 } from "aurelia-validation";
-
 import { ApplicantService } from "services/applicant/applicant-service";
 import { BootstrapFormRenderer } from "../../resources/bootstrap-form-renderer";
 import { Dialog } from "../../components/dialog";
+import isJson from "../../services/common/isJsonUtil";
+import flattenObjOfArr from "../../services/common/flattenObjectOfArrays";
 
 @autoinject
 export class ApplicantForm {
@@ -54,7 +55,6 @@ export class ApplicantForm {
   }
 
   submit() {
-    console.log("on submit!!");
     this.applicantService
       .createApplicant({
         name: this.name,
@@ -66,10 +66,27 @@ export class ApplicantForm {
         hired: this.hired,
       })
       .then((result) => {
-        console.log(result);
         this.router.navigateToRoute("confirmation", { id: result.id });
       })
-      .catch((error) => console.log(error));
+      .catch((error: Error) => {
+        if (isJson(error.message)) {
+          this.dialogService.open({
+            viewModel: Dialog,
+            model: {
+              listOfMessages: flattenObjOfArr(JSON.parse(error.message)),
+              title: this.i18n.tr("errorDialog.title"),
+            },
+          });
+        } else {
+          this.dialogService.open({
+            viewModel: Dialog,
+            model: {
+              message: this.i18n.tr("errorDialog.description"),
+              title: this.i18n.tr("errorDialog.title"),
+            },
+          });
+        }
+      });
   }
 
   nameChanged() {

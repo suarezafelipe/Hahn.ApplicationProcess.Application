@@ -37,5 +37,9 @@
         "title": "Success",
         "description": "The applicant was created successfully.",
         "button": "Create a new Applicant"
+    },
+    "errorDialog": {
+        "title": "Error",
+        "description": "There was a server or network error. Please try again later"
     }
 }
