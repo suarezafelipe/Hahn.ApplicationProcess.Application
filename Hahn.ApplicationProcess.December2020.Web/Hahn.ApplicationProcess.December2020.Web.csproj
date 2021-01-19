@@ -7,6 +7,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DocumentationFile>bin\$(Configuration)\Hahn.ApplicationProcess.December2020.Web.xml</DocumentationFile>
 	  <NoWarn>1701;1702;1591</NoWarn>
+	  <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
 
   <ItemGroup>
